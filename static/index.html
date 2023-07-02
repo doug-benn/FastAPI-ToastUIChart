@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://uicdn.toast.com/chart/latest/toastui-chart.min.css" />
+    <script src="https://uicdn.toast.com/chart/latest/toastui-chart.min.js"></script>
+    <title>Testing Toast UI Charts</title>
+  </head>
+  <body>
+    <button onclick="updateChart()"></button>
+    <div id="lineChart"></div>
+  </body>
+  <script>
+    const chart = toastui.Chart;
+    const el = document.getElementById('lineChart');
+    const data = {
+      categories: ['1', '2', '3', '4', '5'],
+      series: [
+        {
+          name: 'A',
+          data: [10, 100, 50, 40, 70],
+        },
+        {
+          name: 'B',
+          data: [60, 40, 10, 33, 70],
+        },
+      ],
+    };
+    const options = {
+      chart: { width: 700, height: 400 },
+    };
+
+    const lineChart = chart.lineChart({ el, data, options });
+    //
+    function updateChart() {
+      lineChart.addData([10000, 20000], '6');
+    }
+  </script>
+</html>
